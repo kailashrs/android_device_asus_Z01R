@@ -68,7 +68,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
-    debug.sf.latch_unsignaled=1
+    debug.sf.latch_unsignaled=1 \
+    debug.cpurend.vsync=false
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
