@@ -147,10 +147,17 @@ TARGET_RIL_VARIANT := caf
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
+include device/lineage/sepolicy/common/sepolicy.mk
+
 # Sepolicy
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/private \
+    $(DEVICE_PATH)/sepolicy/qcom-qva-private
+
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/public \
+    device/qcom/sepolicy/qva/public
 
 #SELINUX_IGNORE_NEVERALLOWS := true
 
