@@ -4,8 +4,8 @@
 
 # Bluetooth (aptX)
 #app/aptxui/aptxui.apk
-lib64/libaptX_encoder.so
-lib64/libaptXHD_encoder.so
+lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # camera
 etc/media_profiles_V1_0.dtd
