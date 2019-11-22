@@ -27,7 +27,7 @@
     <string name="slider_mode_title">Slider mode</string>
     <string name="buttons_title">Buttons</string>
     <string name="swap_back_recents_summary"></string>
-    <string name="swap_back_recents_title">Swap back and recents button</string>
+    <string name="swap_back_recents_title">Swap back and recents button</string> -->
     <string name="graphics_title">Graphics</string>
     <string name="screen_title">Screen Sensitivity</string>
     <!--
@@ -131,4 +131,7 @@
     <string name="wake_entry">Wakeup</string>
     <string name="swipe_up_to_wake_up_title">Swipe up to wake up</string>
     <string name="swipe_up_to_wake_up_summary">Swipe up on the screen to wake up your device from idle mode</string>
+
+    <string name="fps_info_title">FPS overlay</string>
+    <string name="fps_info_summary">Show overlay with with current frames per second</string>
 </resources>
