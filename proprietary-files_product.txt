@@ -240,7 +240,6 @@ product/lib/vendor.nxp.hardware.nfc@1.0.so
 product/lib/vendor.nxp.hardware.nfc@1.1.so
 
 # Radio
--product/app/atfwd/atfwd.apk
 -product/app/datastatusnotification/datastatusnotification.apk
 -product/app/DynamicDDSService/DynamicDDSService.apk
 -product/app/embms/embms.apk

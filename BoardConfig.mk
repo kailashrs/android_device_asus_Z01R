@@ -152,8 +152,6 @@ TARGET_RIL_VARIANT := caf
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
-include device/lineage/sepolicy/common/sepolicy.mk
-
 # Sepolicy
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
