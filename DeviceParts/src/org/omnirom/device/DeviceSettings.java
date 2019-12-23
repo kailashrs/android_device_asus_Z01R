@@ -42,8 +42,10 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String SLIDER_DEFAULT_VALUE = "2,1,0";
 
-    public static final String KEY_SETTINGS_PREFIX = "device_setting_";
+    private static final String KEY_SETTINGS_PREFIX = "device_setting_";
     public static final String KEY_GLOVE_SWITCH = "glove";
+    public static final String KEY_GLOVE_PATH = "/proc/driver/glove";
+    public static final String SETTINGS_GLOVE_KEY = KEY_SETTINGS_PREFIX + KEY_GLOVE_SWITCH;
 
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static TwoStatePreference mGloveModeSwitch;
@@ -53,18 +55,41 @@ public class DeviceSettings extends PreferenceFragment implements
         setPreferencesFromResource(R.xml.main, rootKey);
 
         mGloveModeSwitch = (TwoStatePreference) findPreference(KEY_GLOVE_SWITCH);
-        mGloveModeSwitch.setEnabled(GloveModeSwitch.isSupported());
-        mGloveModeSwitch.setChecked(GloveModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
+        mGloveModeSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+        KEY_GLOVE_SWITCH, 0) == 1);
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mGloveModeSwitch) {
+            Settings.System.putInt(getContext().getContentResolver(), KEY_GLOVE_SWITCH, mGloveModeSwitch.isChecked() ? 1 : 0);
+            Utils.writeValue(getFile(), mGloveModeSwitch.isChecked() ? "1" : "0");
+            return true;
+        }
         return super.onPreferenceTreeClick(preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return true;
+    }
+
+    public static String getFile() {
+        if (Utils.fileWritable(KEY_GLOVE_PATH)) {
+            return KEY_GLOVE_PATH;
+        }
+        return null;
+    }
+
+    public static String getGestureFile(String key) {
+        switch(key) {
+            case KEY_GLOVE_PATH:
+                return "/proc/driver/glove";
+        }
+        return null;
+    }
+
+    public static boolean isCurrentlyEnabled() {
+        return Utils.getLineValueAsBoolean(getFile(), true);
     }
 }

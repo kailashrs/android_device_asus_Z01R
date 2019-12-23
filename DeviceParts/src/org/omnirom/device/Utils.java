@@ -123,6 +123,13 @@ public class Utils {
         return defValue;
     }
 
+    public static boolean getLineValueAsBoolean(String filename, boolean defValue) {
+        String fileValue = readLine(filename);
+        if(fileValue!=null)
+            return (fileValue.equals("Glove Mode: Off")?false:true);
+        return defValue;
+    }
+
     public static String getFileValue(String filename, String defValue) {
         String fileValue = readLine(filename);
         if(fileValue!=null){
