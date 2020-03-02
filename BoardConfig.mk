@@ -175,3 +175,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_Z01R
 
 # Inherit from the proprietary version
 -include vendor/asus/Z01R/BoardConfigVendor.mk
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := ASUS_Z01R_1
