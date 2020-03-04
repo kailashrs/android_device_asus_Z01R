@@ -21,3 +21,6 @@ type debugfs_wlan, debugfs_type, fs_type;
 type debugfs_sched_features, debugfs_type, fs_type;
 
 type proc_sysctl_schedboost, proc_type, fs_type;
+
+# vendor camera files
+type vendor_camera_data_file, file_type, data_file_type;

@@ -19,3 +19,6 @@
 
 # libperfmgr
 /system/bin/hw/android\.hardware\.power@1\.3-service\.z01r-libperfmgr                                  u:object_r:libperfmgr_exec:s0
+
+# vendor camera files
+/data/vendor/camera(/.*)?                                   u:object_r:vendor_camera_data_file:s0
