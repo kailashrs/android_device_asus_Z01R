@@ -163,8 +163,10 @@ public class Startup extends BroadcastReceiver {
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_RIGHT_SWIPE_APP), enabled);
 
-        enabled = Settings.System.getInt(context.getContentResolver(), DeviceSettings.SETTINGS_GLOVE_KEY, 0) != 0;
-        restore(DeviceSettings.getFile(), enabled);
+        enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
+        if (enabled) {
+            restore(GloveModeSwitch.getFile(), enabled);
+        }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GestureSettings.SETTINGS_GESTURE_KEY, 0) != 0;
         restore(GestureSettings.getFile(), enabled);
