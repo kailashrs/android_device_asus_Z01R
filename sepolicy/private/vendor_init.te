@@ -1,2 +1,4 @@
 # Allow vendor_init to set vendor_camera_prop
 set_prop(vendor_init, vendor_camera_prop)
+
+type qti_init_shell_exec, exec_type, vendor_file_type,file_type;
