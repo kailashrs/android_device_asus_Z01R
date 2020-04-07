@@ -64,7 +64,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:system/etc/permissions/android.hardware.telephony.ims.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    $(LOCAL_PATH)/configs/powerhint.json:system/etc/powerhint.json
 
 # Boot control
 PRODUCT_PACKAGES_DEBUG += \
@@ -129,6 +130,10 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
+# Libperfmgr
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.3-service.z01r-libperfmgr
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.asus_Z01R
@@ -156,10 +161,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
-
-# Power
-PRODUCT_PACKAGES += \
-    power.qcom:64
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
