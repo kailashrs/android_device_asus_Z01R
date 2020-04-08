@@ -8,3 +8,6 @@ allow init vendor_configs_file:dir mounton;
 allow init {
     sysfs_fp_proximity
 }:file { open read setattr };
+
+# Allow init create cgroups
+allow init cgroup:file create;
