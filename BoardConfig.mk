@@ -17,6 +17,9 @@ BOARD_VENDOR := asus
 
 DEVICE_PATH := device/asus/Z01R
 
+# Compile libhwui in performance mode
+HWUI_COMPILE_FOR_PERF := true
+
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 ALLOW_MISSING_DEPENDENCIES := true
