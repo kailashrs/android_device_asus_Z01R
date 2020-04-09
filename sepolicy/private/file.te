@@ -8,6 +8,7 @@ type sysfs_fp_proximity, sysfs_type, fs_type;
 type xrom_file, file_type;
 type pps_socket, file_type;
 
+type sysfs_gesture, sysfs_type, fs_type;
 type proc_touchscreen, proc_type, sysfs_type, fs_type;
 
 type sysfs_msm_subsys, sysfs_type, fs_type;

@@ -12,4 +12,7 @@ allow init {
 # Allow init create cgroups
 allow init cgroup:file create;
 
+# Allow init to chown/chmod on pseudo files in /sys
+allow init sysfs_gesture:file { rw_file_perms setattr };
+
 permissive init;

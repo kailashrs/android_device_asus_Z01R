@@ -102,6 +102,10 @@ PRODUCT_PACKAGES += \
     AsusDoze \
     AsusPocketMode
 
+# DeviceParts
+PRODUCT_PACKAGES += \
+    DeviceParts
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
