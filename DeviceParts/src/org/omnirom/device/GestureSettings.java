@@ -129,7 +129,7 @@ public class GestureSettings extends PreferenceFragment implements
 
         mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
         mProxiSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1) != 0);
+                Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1) != 0);
 
         mLetterCGesture = (AppSelectListPreference) findPreference(KEY_C_APP);
         mLetterCGesture.setEnabled(isGestureSupported(KEY_C_APP));
@@ -209,7 +209,7 @@ public class GestureSettings extends PreferenceFragment implements
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mProxiSwitch) {
             Settings.System.putInt(getContext().getContentResolver(),
-                    Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
+                    Settings.System.DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);

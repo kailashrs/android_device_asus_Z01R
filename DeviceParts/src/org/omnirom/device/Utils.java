@@ -97,10 +97,10 @@ public class Utils {
             writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(value);
         } catch (FileNotFoundException e) {
-//            Log.w(TAG, "No such file " + fileName + " for writing", e);
+            Log.w("Utils", "No such file " + fileName + " for writing", e);
             return false;
         } catch (IOException e) {
-//            Log.e(TAG, "Could not write to file " + fileName, e);
+            Log.e("Utils", "Could not write to file " + fileName, e);
             return false;
         } finally {
             try {
