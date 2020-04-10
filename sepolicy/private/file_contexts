@@ -20,5 +20,9 @@
 # libperfmgr
 /system/bin/hw/android\.hardware\.power@1\.3-service\.z01r-libperfmgr                                  u:object_r:libperfmgr_exec:s0
 
+# Gestures
+/proc/driver/gesture_type                     u:object_r:sysfs_gesture:s0
+/proc/driver/swipeup                          u:object_r:sysfs_gesture:s0
+
 # vendor camera files
 /data/vendor/camera(/.*)?                                   u:object_r:vendor_camera_data_file:s0

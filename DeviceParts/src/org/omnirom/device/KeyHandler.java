@@ -77,8 +77,6 @@ public class KeyHandler implements DeviceKeyHandler {
     protected static final int GESTURE_REQUEST = 1;
     private static final int GESTURE_WAKELOCK_DURATION = 1000;
 
-    private static final int KEY_GESTURE_LEFT_SWIPE = 260;
-    private static final int KEY_GESTURE_RIGHT_SWIPE = 261;
     private static final int KEY_GESTURE_C = 269;
     private static final int KEY_GESTURE_E = 263;
     private static final int KEY_GESTURE_L = 265;
@@ -88,8 +86,10 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_GESTURE_V = 268;
     private static final int KEY_GESTURE_W = 266;
     private static final int KEY_GESTURE_Z = 270;
-    private static final int KEY_GESTURE_UP_SWIPE = 258;
     private static final int KEY_GESTURE_DOWN_SWIPE = 259;
+    private static final int KEY_GESTURE_LEFT_SWIPE = 260;
+    private static final int KEY_GESTURE_RIGHT_SWIPE = 261;
+    private static final int KEY_SWIPEUP_GESTURE = 258;
 
     private static final int KEY_DOUBLE_TAP = 143;
     private static final int KEY_HOME = 102;
@@ -112,10 +112,10 @@ public class KeyHandler implements DeviceKeyHandler {
         KEY_GESTURE_S,
         KEY_GESTURE_W,
         KEY_GESTURE_Z,
-        KEY_GESTURE_UP_SWIPE,
         KEY_GESTURE_DOWN_SWIPE,
         KEY_GESTURE_LEFT_SWIPE,
         KEY_GESTURE_RIGHT_SWIPE,
+        KEY_SWIPEUP_GESTURE,
         //KEY_DOUBLE_TAP,
         FP_GESTURE_LONG_PRESS
     };
@@ -130,10 +130,10 @@ public class KeyHandler implements DeviceKeyHandler {
         KEY_GESTURE_V,
         KEY_GESTURE_W,
         KEY_GESTURE_Z,
-        KEY_GESTURE_UP_SWIPE,
         KEY_GESTURE_DOWN_SWIPE,
         KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE
+        KEY_GESTURE_RIGHT_SWIPE,
+        KEY_SWIPEUP_GESTURE
         //KEY_DOUBLE_TAP
     };
 
@@ -344,6 +344,9 @@ public class KeyHandler implements DeviceKeyHandler {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
         }
+        if (event.getScanCode() == KEY_SWIPEUP_GESTURE) {
+            return true;
+        }
         String value = getGestureValueForScanCode(event.getScanCode());
         if (!TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.WAKE_ENTRY)) {
             if (DEBUG) Log.i(TAG, "isWakeEvent " + event.getScanCode() + value);
@@ -517,19 +520,15 @@ public class KeyHandler implements DeviceKeyHandler {
             case KEY_GESTURE_Z:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_8, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_UP_SWIPE:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_9, UserHandle.USER_CURRENT);
             case KEY_GESTURE_DOWN_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_10, UserHandle.USER_CURRENT);
-/*            case KEY_GESTURE_LEFT_SWIPE:
+                    GestureSettings.DEVICE_GESTURE_MAPPING_9, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_LEFT_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_8, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_10, UserHandle.USER_CURRENT);
             case KEY_GESTURE_RIGHT_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_9, UserHandle.USER_CURRENT);
-*/
+                    GestureSettings.DEVICE_GESTURE_MAPPING_11, UserHandle.USER_CURRENT);
         }
         return null;
     }

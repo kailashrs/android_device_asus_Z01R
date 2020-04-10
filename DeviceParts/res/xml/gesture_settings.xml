@@ -45,6 +45,12 @@
     <PreferenceCategory
         android:title="@string/offscreen_gesture_title">
 
+        <SwitchPreference
+            android:key="swipeup"
+            android:title="@string/swipe_up_to_wake_up_title"
+            android:summary="@string/swipe_up_to_wake_up_summary"
+            android:persistent="false" />
+
         <org.omnirom.device.AppSelectListPreference
             android:key="c_gesture_app"
             android:title="@string/category_c_gesture"
@@ -91,25 +97,18 @@
             android:persistent="false"/>
 
         <org.omnirom.device.AppSelectListPreference
-            android:key="up_gesture_app"
-            android:title="@string/category_up_gesture"
-            android:persistent="false" />
-
-        <org.omnirom.device.AppSelectListPreference
             android:key="down_gesture_app"
             android:title="@string/category_down_gesture"
             android:persistent="false" />
 
-<!--
         <org.omnirom.device.AppSelectListPreference
             android:key="left_gesture_app"
-            android:title="@string/category_left_arrow_gesture"
+            android:title="@string/category_left_gesture"
             android:persistent="false"/>
 
         <org.omnirom.device.AppSelectListPreference
             android:key="right_gesture_app"
-            android:title="@string/category_right_arrow_gesture"
+            android:title="@string/category_right_gesture"
             android:persistent="false"/>
--->
     </PreferenceCategory>
 </PreferenceScreen>

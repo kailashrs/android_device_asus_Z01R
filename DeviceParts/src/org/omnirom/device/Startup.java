@@ -133,18 +133,8 @@ public class Startup extends BroadcastReceiver {
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_Z_APP), enabled);
 
-        // UP Gesture
-        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_9;
-        if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.TORCH_ENTRY;
-            Settings.System.putString(context.getContentResolver(), mapping, value);
-        }
-        value = Settings.System.getString(context.getContentResolver(), mapping);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(GestureSettings.getGestureFile(GestureSettings.KEY_UP_APP), enabled);
-
         // DOWN Gesture
-        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_10;
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_9;
         if (TextUtils.isEmpty(value)) {
             value = AppSelectListPreference.TORCH_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
@@ -153,9 +143,28 @@ public class Startup extends BroadcastReceiver {
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_DOWN_APP), enabled);
 
-        // fp down swipe
-//        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_10);
-//        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-//        restore(GestureSettings.FP_GESTURE_LONG_PRESS_APP, enabled);
+        // LEFT Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_10;
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.MUSIC_PREV_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_LEFT_SWIPE_APP), enabled);
+
+        // RIGHT Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_11;
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.MUSIC_NEXT_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_RIGHT_SWIPE_APP), enabled);
+
+        enabled = Settings.System.getInt(context.getContentResolver(), GestureSettings.SETTINGS_GESTURE_KEY, 0) != 0;
+        restore(GestureSettings.getFile(), enabled);
+
     }
 }
