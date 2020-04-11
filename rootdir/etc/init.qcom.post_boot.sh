@@ -4657,25 +4657,6 @@ case "$target" in
                 platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
         fi
 
-        case "$soc_id" in
-                "321" | "341")
-                # Start Host based Touch processing
-                case "$hw_platform" in
-                    "QRD" )
-                            case "$platform_subtype_id" in
-                                   "32") #QVR845 do nothing
-                                     ;;
-                                   *)
-                                         start_hbtp
-                                     ;;
-                            esac
-                     ;;
-                    *)
-                          start_hbtp
-                     ;;
-                esac
-         ;;
-        esac
 	# Core control parameters
 	echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
 	echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
