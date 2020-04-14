@@ -60,4 +60,7 @@ void vendor_load_properties()
 
     // for Asus Camera
     property_override("ro.product.device", "ASUS_Z01R_1");
+
+    // Expose AUX
+    property_override("vendor.camera.aux.packagelist", "org.codeaurora.snapcam,com.asus.camera,com.google.android.GoogleCamera");
 }

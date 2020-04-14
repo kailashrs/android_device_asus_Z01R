@@ -91,10 +91,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     ro.telephony.default_network=22,22
 
-# Expose AUX
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.asus.camera,com.google.android.GoogleCamera
-
 #Property to enable Mag filter
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sensors.enable.mag_filter=true
