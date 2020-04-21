@@ -86,7 +86,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.recovery.qcom.rc \
-    init.qcom.post_boot.sh
+    init.qcom.post_boot.sh \
+    init.asus.rc
 
 # Display
 PRODUCT_PACKAGES += \
