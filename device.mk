@@ -164,9 +164,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-aosip
 
-PRODUCT_PACKAGES += \
-    NoCutoutOverlay
-
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
@@ -195,14 +192,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-# Trust HAL
-# PRODUCT_PACKAGES += \
-#     lineage.trust@1.0-service
-
-# Touch
-# PRODUCT_PACKAGES += \
-#     lineage.touch@1.0-service.asus_Z01R
 
 # Update engine
 PRODUCT_PACKAGES += \
