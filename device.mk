@@ -139,6 +139,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.3-service.z01r-libperfmgr
 
+# Pixel powerstats
+PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0-service.z01r
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.asus_Z01R
@@ -180,7 +184,8 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/google/pixel
 
 # TextClassifier
 PRODUCT_PACKAGES += \
