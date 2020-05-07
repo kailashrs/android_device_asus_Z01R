@@ -1,1 +1,2 @@
 allow system_server libperfmgr:binder call;
+allow system_server powerstats:binder call;
