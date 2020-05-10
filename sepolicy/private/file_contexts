@@ -23,6 +23,7 @@
 # Gestures
 /proc/driver/gesture_type                     u:object_r:sysfs_gesture:s0
 /proc/driver/swipeup                          u:object_r:sysfs_gesture:s0
+/proc/driver/glove                            u:object_r:sysfs_gesture:s0
 
 # vendor camera files
 /data/vendor/camera(/.*)?                                   u:object_r:vendor_camera_data_file:s0

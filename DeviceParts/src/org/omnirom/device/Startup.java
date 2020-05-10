@@ -166,5 +166,7 @@ public class Startup extends BroadcastReceiver {
         enabled = Settings.System.getInt(context.getContentResolver(), GestureSettings.SETTINGS_GESTURE_KEY, 0) != 0;
         restore(GestureSettings.getFile(), enabled);
 
+        enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
+        restore(GloveModeSwitch.getFile(), enabled);
     }
 }
