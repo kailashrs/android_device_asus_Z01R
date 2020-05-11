@@ -22,7 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.support.v7.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 
 @TargetApi(24)
