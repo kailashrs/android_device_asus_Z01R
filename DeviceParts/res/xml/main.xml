@@ -24,7 +24,6 @@
                 android:targetClass="org.omnirom.device.GestureSettingsActivity" />
     </Preference>
 
-<!--
     <Preference
         android:key="doze_category"
         android:title="@string/doze_category_title"
@@ -34,7 +33,6 @@
                 android:targetPackage="org.omnirom.device"
                 android:targetClass="org.omnirom.device.DozeSettingsActivity" />
     </Preference>
--->
 
     <PreferenceCategory
         android:key="screen"
