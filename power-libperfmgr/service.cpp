@@ -18,13 +18,12 @@
 
 #include <android/log.h>
 #include <hidl/HidlTransportSupport.h>
-#include <binder/ProcessState.h>
 
 #include "Power.h"
 
+using android::OK;
 using android::sp;
 using android::status_t;
-using android::OK;
 
 // libhwbinder:
 using android::hardware::configureRpcThreadpool;
@@ -34,9 +33,8 @@ using android::hardware::joinRpcThreadpool;
 using android::hardware::power::V1_3::IPower;
 using android::hardware::power::V1_3::implementation::Power;
 
-int main(int /* argc */, char** /* argv */) {
+int main(int /* argc */, char ** /* argv */) {
     ALOGI("Power HAL Service 1.3 for z01r is starting.");
-//    android::ProcessState::initWithDriver("/dev/binder");
 
     android::sp<IPower> service = new Power();
     if (service == nullptr) {
