@@ -36,14 +36,32 @@ public class Startup extends BroadcastReceiver {
         Utils.writeValue(file, enabled ? "1" : "0");
     }
 
+    private static void restore(String file, String value) {
+        if (file == null) {
+            return;
+        }
+        Utils.writeValue(file, value);
+    }
+
+    private void maybeImportOldSettings(Context context) {
+        boolean imported = Settings.System.getInt(context.getContentResolver(), "omni_device_setting_imported", 0) != 0;
+        if (!imported) {
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            boolean enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_FPS_INFO, false);
+            if (enabled)
+                context.startService(new Intent(context, FPSInfoService.class));
+
+            enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GLOVE_SWITCH, false);
+            Settings.System.putInt(context.getContentResolver(), DeviceSettings.KEY_GLOVE_SWITCH, enabled ? 1 : 0);
+
+            Settings.System.putInt(context.getContentResolver(), "omni_device_setting_imported", 1);
+        }
+    }
+
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_FPS_INFO, false);
-        if (enabled) {
-            context.startService(new Intent(context, FPSInfoService.class));
-        }
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        maybeImportOldSettings(context);
         restoreAfterUserSwitch(context);
     }
 
@@ -168,6 +186,13 @@ public class Startup extends BroadcastReceiver {
         value = Settings.System.getString(context.getContentResolver(), mapping);
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_RIGHT_SWIPE_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), Settings.System.BUTTON_EXTRA_KEY_MAPPING);
+        if (TextUtils.isEmpty(value)) {
+            return;
+        } else {
+        restore(GestureSettings.getGestureFile(GestureSettings.GESTURE_CONTROL_PATH), value);
+        }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
         if (enabled) {

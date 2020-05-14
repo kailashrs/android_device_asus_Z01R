@@ -60,7 +60,7 @@ public class GestureSettings extends PreferenceFragment implements
 
     public static final String SETTINGS_GESTURE_KEY = KEY_SETTINGS_SWIPEUP_PREFIX + KEY_SWIPEUP_SWITCH;
 
-    private static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
+    public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
     private static final String SWIPEUP_PATH = "/proc/driver/swipeup";
 
     public static final int KEY_C_ID = 0;
