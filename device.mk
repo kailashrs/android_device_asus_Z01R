@@ -214,5 +214,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:system/etc/permissions/privapp-permissions-wfd.xml
+
 # Dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
