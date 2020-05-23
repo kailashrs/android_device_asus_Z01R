@@ -4718,9 +4718,6 @@ case "$target" in
 	echo 10 > /sys/class/devfreq/soc:qcom,mincpubw/polling_interval
 
 	# cpuset parameters
-	echo 0-1 > /dev/cpuset/background/cpus
-        echo 0-2 > /dev/cpuset/system-background/cpus
-        echo 0-3 > /dev/cpuset/restricted/cpus
         echo 0-3 > /dev/cpuset/little/cpus
 
 	# Setup final blkio
@@ -4732,6 +4729,7 @@ case "$target" in
 
 	# Turn off scheduler boost at the end
         echo 0 > /proc/sys/kernel/sched_boost
+
 	# Disable CPU Retention
         echo N > /sys/module/lpm_levels/L3/cpu0/ret/idle_enabled
         echo N > /sys/module/lpm_levels/L3/cpu1/ret/idle_enabled
@@ -4742,6 +4740,7 @@ case "$target" in
         echo N > /sys/module/lpm_levels/L3/cpu6/ret/idle_enabled
         echo N > /sys/module/lpm_levels/L3/cpu7/ret/idle_enabled
 	echo N > /sys/module/lpm_levels/L3/l3-dyn-ret/idle_enabled
+
         # Turn on sleep modes.
         echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 	echo 100 > /proc/sys/vm/swappiness
