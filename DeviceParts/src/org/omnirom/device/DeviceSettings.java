@@ -53,6 +53,13 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static TwoStatePreference mGloveModeSwitch;
 
+    public static final String KEY_VIBSTRENGTH = "vib_strength";
+    private VibratorStrengthPreference mVibratorStrength;
+    public static final String KEY_CALL_VIBSTRENGTH = "vib_call_strength";
+    private VibratorCallStrengthPreference mVibratorCallStrength;
+    public static final String KEY_NOTIF_VIBSTRENGTH = "vib_notif_strength";
+    private VibratorNotifStrengthPreference mVibratorNotifStrength;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.main, rootKey);
@@ -67,6 +74,16 @@ public class DeviceSettings extends PreferenceFragment implements
         mFpsInfo = (SwitchPreference) findPreference(KEY_FPS_INFO);
         mFpsInfo.setChecked(prefs.getBoolean(KEY_FPS_INFO, false));
         mFpsInfo.setOnPreferenceChangeListener(this);
+
+        mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
+        if (mVibratorStrength != null)
+            mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
+        mVibratorCallStrength = (VibratorCallStrengthPreference) findPreference(KEY_CALL_VIBSTRENGTH);
+        if (mVibratorCallStrength != null)
+            mVibratorCallStrength.setEnabled(VibratorCallStrengthPreference.isSupported());
+        mVibratorNotifStrength = (VibratorNotifStrengthPreference) findPreference(KEY_NOTIF_VIBSTRENGTH);
+        if (mVibratorNotifStrength != null)
+            mVibratorNotifStrength.setEnabled(VibratorNotifStrengthPreference.isSupported());
     }
 
     @Override
