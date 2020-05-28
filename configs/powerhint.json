@@ -221,6 +221,15 @@
       "HoldFd": true
     },
     {
+      "Name": "SchedBoost",
+      "Path": "/proc/sys/kernel/sched_boost",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "UfsClkGateEnable",
       "Path": "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable",
       "Values": [
@@ -305,6 +314,12 @@
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
       "Value": "2597"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "SchedBoost",
+      "Duration": 3000,
+      "Value": "1"
     },
     {
       "PowerHint": "INTERACTION",
