@@ -25,3 +25,6 @@ type proc_sysctl_schedboost, proc_type, fs_type;
 
 # vendor camera files
 type vendor_camera_data_file, file_type, data_file_type;
+
+# KCAL
+type sysfs_kcal, fs_type, sysfs_type;

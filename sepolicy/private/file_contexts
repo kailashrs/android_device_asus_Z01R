@@ -30,3 +30,6 @@
 
 # Vibrator
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pmi8998@3:qcom,haptics@c000/leds/vibrator(/.*)?           u:object_r:sysfs_vibrator:s0
+
+# KCAL
+/sys/devices/platform/kcal_ctrl.0(/.*)?                                     u:object_r:sysfs_kcal:s0
