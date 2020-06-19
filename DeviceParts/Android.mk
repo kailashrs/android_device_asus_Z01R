@@ -13,6 +13,7 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
+LOCAL_PRODUCT_MODULE := true
 
 package_resource_overlays := $(strip \
     $(wildcard $(foreach dir, $(PRODUCT_PACKAGE_OVERLAYS), \
