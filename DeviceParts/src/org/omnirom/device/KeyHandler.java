@@ -103,38 +103,9 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int FP_GESTURE_LONG_PRESS = 188;
 
     private static final int[] sSupportedGestures = new int[]{
-        KEY_GESTURE_C,
-        KEY_GESTURE_E,
-        KEY_GESTURE_L,
-        KEY_GESTURE_M,
-        KEY_GESTURE_O,
-        KEY_GESTURE_V,
-        KEY_GESTURE_S,
-        KEY_GESTURE_W,
-        KEY_GESTURE_Z,
-        KEY_GESTURE_DOWN_SWIPE,
-        KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE,
-        KEY_SWIPEUP_GESTURE,
-        //KEY_DOUBLE_TAP,
-        FP_GESTURE_LONG_PRESS
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
-        KEY_GESTURE_C,
-        KEY_GESTURE_E,
-        KEY_GESTURE_L,
-        KEY_GESTURE_M,
-        KEY_GESTURE_O,
-        KEY_GESTURE_S,
-        KEY_GESTURE_V,
-        KEY_GESTURE_W,
-        KEY_GESTURE_Z,
-        KEY_GESTURE_DOWN_SWIPE,
-        KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE,
-        KEY_SWIPEUP_GESTURE
-        //KEY_DOUBLE_TAP
     };
 
     protected final Context mContext;
@@ -534,10 +505,6 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private String getGestureValueForFPScanCode(int scanCode) {
-        if (FP_GESTURE_LONG_PRESS == scanCode) {
-            return Settings.System.getStringForUser(mContext.getContentResolver(),
-                   GestureSettings.DEVICE_GESTURE_MAPPING_10, UserHandle.USER_CURRENT);
-        }
         return null;
     }
 
