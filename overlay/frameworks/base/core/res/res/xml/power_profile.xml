@@ -21,11 +21,12 @@
         <value>6.12</value>
         <value>4.58</value>
     </array>
+    <item name="cpu.cluster_power.cluster0">1.30</item>
+    <item name="cpu.cluster_power.cluster1">5.29</item>
     <array name="cpu.clusters.cores">
         <value>4</value>
-        <value>4</value>
     </array>
-    <array name="cpu.core_speeds.cluster0">
+    <array name="cpu.speeds.cluster0">
         <value>300000</value>
         <value>403200</value>
         <value>480000</value>
@@ -45,7 +46,7 @@
         <value>1689600</value>
         <value>1766400</value>
     </array>
-    <array name="cpu.core_power.cluster0">
+    <array name="cpu.active.cluster0">
         <value>45.1</value>
         <value>54.3</value>
         <value>55.1</value>
@@ -65,19 +66,17 @@
         <value>88.6</value>
         <value>97.9</value>
     </array>
-    <item name="cpu.suspend">4.86</item>
-    <item name="cpu.idle">1.11</item>
-    <item name="cpu.active">2.55</item>
+    <item name="cpu.awake">31.4</item>
+    <item name="cpu.idle">4.86</item>
     <array name="memory.bandwidths">
         <value>22.7</value>
     </array>
     <item name="battery.capacity">3300</item>
-    <item name="wifi.controller.idle">0.48</item>
+    <item name="wifi.controller.idle">0</item>
     <item name="wifi.controller.rx">0</item>
-    <item name="wifi.controller.tx">123</item>
+    <item name="wifi.controller.tx">0</item>
     <array name="wifi.controller.tx_levels" />
     <item name="wifi.controller.voltage">0</item>
-    <item name="bluetooth.controller.idle">0.39</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
