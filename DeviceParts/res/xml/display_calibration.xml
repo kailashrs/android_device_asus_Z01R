@@ -19,34 +19,46 @@
                 android:title="@string/kcal_enabled_title"
                 android:summary="@string/kcal_enabled_summary"
                 android:persistent="false" />
-        <org.omnirom.device.SeekBarPreference
+        <org.omnirom.device.SeekBarPreferenceRGB
                 android:key="kcal_red"
                 android:title="@string/kcal_red"
                 android:max="256"
                 android:dependency="kcal_enabled"
                 android:persistent="false" />
-        <org.omnirom.device.SeekBarPreference
+        <org.omnirom.device.SeekBarPreferenceRGB
                 android:key="kcal_green"
                 android:title="@string/kcal_green"
                 android:max="256"
                 android:dependency="kcal_enabled"
                 android:persistent="false" />
-        <org.omnirom.device.SeekBarPreference
+        <org.omnirom.device.SeekBarPreferenceRGB
                 android:key="kcal_blue"
                 android:title="@string/kcal_blue"
                 android:max="256"
                 android:dependency="kcal_enabled"
                 android:persistent="false" />
-        <org.omnirom.device.SeekBarPreference
+        <org.omnirom.device.SeekBarPreferenceCSV
                 android:key="kcal_contrast"
                 android:title="@string/kcal_contrast"
-                android:max="256"
+                android:max="383"
                 android:dependency="kcal_enabled"
                 android:persistent="false" />
-        <org.omnirom.device.SeekBarPreference
+        <org.omnirom.device.SeekBarPreferenceHue
+                android:key="kcal_hue"
+                android:title="@string/kcal_hue"
+                android:max="1536"
+                android:dependency="kcal_enabled"
+                android:persistent="false" />
+        <org.omnirom.device.SeekBarPreferenceCSV
                 android:key="kcal_saturation"
                 android:title="@string/kcal_saturation"
-                android:max="256"
+                android:max="383"
+                android:dependency="kcal_enabled"
+                android:persistent="false" />
+        <org.omnirom.device.SeekBarPreferenceCSV
+                android:key="kcal_value"
+                android:title="@string/kcal_value"
+                android:max="383"
                 android:dependency="kcal_enabled"
                 android:persistent="false" />
 </PreferenceScreen>

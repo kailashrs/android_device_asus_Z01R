@@ -29,20 +29,20 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-public class SeekBarPreference extends Preference implements
+public class SeekBarPreferenceHue extends Preference implements
         OnSeekBarChangeListener {
 
-    public static int maximum = 256;
+    public static int maximum = 1536;
     public static int interval = 1;
 
     private TextView monitorBox;
     private SeekBar bar;
 
-    int currentValue = 256;
+    int currentValue = 0;
 
     private OnPreferenceChangeListener changer;
 
-    public SeekBarPreference(Context context, AttributeSet attrs) {
+    public SeekBarPreferenceHue(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
