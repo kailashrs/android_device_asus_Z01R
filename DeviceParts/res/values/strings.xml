@@ -44,7 +44,7 @@
     <string name="hbm_mode_title">High brightness mode</string>
     <string name="adaptive_mode_title">Adaptive mode</string>
     <string name="oneplus_mode_title">OnePlus mode</string> -->
-    <string name="proxi_summary_head">Check proximity sensor for handling gesture and fingerprint sensor</string>
+    <string name="proxi_summary_head">Check proximity sensor for handling gestures</string>
     <string name="proxi_title_head">Proximity check</string>
 <!--    <string name="off_screen_gesture_feedback_summary_head">Enable haptic feedback for gestures</string>
     <string name="off_screen_gesture_feedback_title_head">Haptic feedback</string>
@@ -69,7 +69,7 @@
 <!--    <string name="category_double_swipe_gesture">II gesture</string> -->
     <string name="offscreen_gesture_title">Offscreen gestures</string>
     <string name="category_c_gesture">C gesture</string>
-    <string name="category_e_gesture">E gesture</string>
+    <string name="category_e_gesture">e gesture</string>
     <string name="category_l_gesture">L gesture</string>
     <string name="category_m_gesture">M gesture</string>
     <string name="category_o_gesture">O gesture</string>
@@ -111,8 +111,8 @@
     <string name="category_fp_left_swipe_gesture">Fingerprint left swipe</string>
     <string name="category_fp_long_press_gesture">Fingerprint long press</string>
 -->
-    <string name="fp_swipe_down_switch_summary_head">Use swipe down gesture to expand notifications</string>
-    <string name="fp_swipe_down_switch_title_head">Fingerprint swipe down gesture</string>
+    <string name="fp_swipe_down_switch_summary_head">Use swipe gestures to expand or clear all notifications</string>
+    <string name="fp_swipe_down_switch_title_head">Fingerprint swipe gestures</string>
 
     <string name="doze_category_title">Ambient display</string>
     <string name="doze_category_summary">Wake screen when you receive notifications</string>
