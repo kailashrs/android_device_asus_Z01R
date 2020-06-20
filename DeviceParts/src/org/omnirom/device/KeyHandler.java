@@ -77,19 +77,19 @@ public class KeyHandler implements DeviceKeyHandler {
     protected static final int GESTURE_REQUEST = 1;
     private static final int GESTURE_WAKELOCK_DURATION = 1000;
 
-    private static final int KEY_GESTURE_C = 269;
-    private static final int KEY_GESTURE_E = 263;
-    private static final int KEY_GESTURE_L = 265;
-    private static final int KEY_GESTURE_M = 264;
-    private static final int KEY_GESTURE_O = 262;
-    private static final int KEY_GESTURE_S = 267;
-    private static final int KEY_GESTURE_V = 268;
-    private static final int KEY_GESTURE_W = 266;
-    private static final int KEY_GESTURE_Z = 270;
-    private static final int KEY_GESTURE_DOWN_SWIPE = 259;
-    private static final int KEY_GESTURE_LEFT_SWIPE = 260;
-    private static final int KEY_GESTURE_RIGHT_SWIPE = 261;
-    private static final int KEY_SWIPEUP_GESTURE = 258;
+    private static final int KEY_GESTURE_C = 46;
+    private static final int KEY_GESTURE_E = 18;
+    private static final int KEY_GESTURE_L = 38;
+    private static final int KEY_GESTURE_M = 50;
+    private static final int KEY_GESTURE_O = 24;
+    private static final int KEY_GESTURE_S = 31;
+    private static final int KEY_GESTURE_V = 47;
+    private static final int KEY_GESTURE_W = 17;
+    private static final int KEY_GESTURE_Z = 44;
+    private static final int KEY_GESTURE_DOWN_SWIPE = 108;
+    private static final int KEY_GESTURE_LEFT_SWIPE = 105;
+    private static final int KEY_GESTURE_RIGHT_SWIPE = 106;
+    private static final int KEY_SWIPEUP_GESTURE = 103;
 
     private static final int KEY_DOUBLE_TAP = 143;
     private static final int KEY_HOME = 102;
