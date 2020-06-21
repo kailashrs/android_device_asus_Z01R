@@ -120,8 +120,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private SensorManager mSensorManager;
     private boolean mProxyIsNear;
     private boolean mUseProxiCheck;
-    private Sensor mTiltSensor;
-    private boolean mUseTiltCheck;
     private boolean mProxyWasNear;
     private long mProxySensorTimestamp;
     private boolean mUseWaveCheck;
@@ -151,19 +149,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 }
                 mProxySensorTimestamp = SystemClock.elapsedRealtime();
                 mProxyWasNear = mProxyIsNear;
-            }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        }
-    };
-
-    private SensorEventListener mTiltSensorListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            if (event.values[0] == 1) {
-                launchDozePulse();
             }
         }
 
@@ -243,7 +228,6 @@ public class KeyHandler implements DeviceKeyHandler {
         mNoMan = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        mTiltSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
         mPocketSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         IntentFilter systemStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         systemStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -380,9 +364,6 @@ public class KeyHandler implements DeviceKeyHandler {
         if (enableProxiSensor()) {
             mSensorManager.unregisterListener(mProximitySensor, mPocketSensor);
         }
-        if (mUseTiltCheck) {
-            mSensorManager.unregisterListener(mTiltSensorListener, mTiltSensor);
-        }
     }
 
     private void onDisplayOff() {
@@ -392,10 +373,6 @@ public class KeyHandler implements DeviceKeyHandler {
             mSensorManager.registerListener(mProximitySensor, mPocketSensor,
                     SensorManager.SENSOR_DELAY_NORMAL);
             mProxySensorTimestamp = SystemClock.elapsedRealtime();
-        }
-        if (mUseTiltCheck) {
-            mSensorManager.registerListener(mTiltSensorListener, mTiltSensor,
-                    SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
@@ -527,7 +504,6 @@ public class KeyHandler implements DeviceKeyHandler {
             String[] parts = value.split(":");
             mUseWaveCheck = Boolean.valueOf(parts[0]);
             mUsePocketCheck = Boolean.valueOf(parts[1]);
-            mUseTiltCheck = Boolean.valueOf(parts[2]);
         }
     }
 
