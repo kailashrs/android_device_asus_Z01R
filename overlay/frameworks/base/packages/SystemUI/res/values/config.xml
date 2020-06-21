@@ -32,4 +32,7 @@
 
     <!-- Whether to show HD icon in the status bar for volte -->
     <bool name="config_display_hd_volte">true</bool>
+
+    <!-- Burn in protection -->
+    <bool name="config_statusBarBurnInProtection">false</bool>
 </resources>
