@@ -75,7 +75,7 @@ public class Startup extends BroadcastReceiver {
         String mapping = GestureSettings.DEVICE_GESTURE_MAPPING_0;
         String value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.MUSIC_PLAY_ENTRY;
+            value = AppSelectListPreference.CAMERA_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         boolean enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -85,7 +85,7 @@ public class Startup extends BroadcastReceiver {
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_1;
         value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.CAMERA_ENTRY;
+            value = AppSelectListPreference.TORCH_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -95,7 +95,7 @@ public class Startup extends BroadcastReceiver {
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_2;
         value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.CAMERA_ENTRY;
+            value = AppSelectListPreference.TORCH_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -105,7 +105,7 @@ public class Startup extends BroadcastReceiver {
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_3;
         value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.CAMERA_ENTRY;
+            value = AppSelectListPreference.MUSIC_PLAY_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -124,7 +124,7 @@ public class Startup extends BroadcastReceiver {
         // S Gesture
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_5;
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.TORCH_ENTRY;
+            value = AppSelectListPreference.WAKE_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         value = Settings.System.getString(context.getContentResolver(), mapping);
@@ -145,7 +145,7 @@ public class Startup extends BroadcastReceiver {
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_7;
         value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.MUSIC_PREV_ENTRY;
+            value = AppSelectListPreference.WAKE_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -155,7 +155,7 @@ public class Startup extends BroadcastReceiver {
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_8;
         value = Settings.System.getString(context.getContentResolver(), mapping);
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.MUSIC_NEXT_ENTRY;
+            value = AppSelectListPreference.WAKE_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
@@ -164,7 +164,7 @@ public class Startup extends BroadcastReceiver {
         // DOWN Gesture
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_9;
         if (TextUtils.isEmpty(value)) {
-            value = AppSelectListPreference.TORCH_ENTRY;
+            value = AppSelectListPreference.MUSIC_PLAY_ENTRY;
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         value = Settings.System.getString(context.getContentResolver(), mapping);
