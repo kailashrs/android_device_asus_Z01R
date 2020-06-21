@@ -703,4 +703,5 @@
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">true</bool>
 
+    <bool name="config_proxiSensorWakupCheck">true</bool>
 </resources>
