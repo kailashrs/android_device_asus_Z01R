@@ -66,7 +66,6 @@ public class Startup extends BroadcastReceiver {
         VibratorNotifStrengthPreference.restore(context);
         maybeImportOldSettings(context);
         restoreAfterUserSwitch(context);
-        DisplayCalibration.restore(context);
     }
 
     public static void restoreAfterUserSwitch(Context context) {
