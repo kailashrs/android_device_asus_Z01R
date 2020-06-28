@@ -71,7 +71,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     debug.cpurend.vsync=false \
     debug.sf.enable_gl_backpressure=1 \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    debug.gralloc.gfx_ubwc_disable=0
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
