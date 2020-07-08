@@ -102,6 +102,8 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int POCKET_MIN_DELTA_MS = 5000;
     private static final int FP_GESTURE_LONG_PRESS = 188;
 
+    private static final String GOODIX_CONTROL_PATH = "/sys/devices/platform/soc/0.goodix_gf5228/proximity_state";
+    
     private static final int[] sSupportedGestures = new int[]{
     };
 
@@ -136,6 +138,11 @@ public class KeyHandler implements DeviceKeyHandler {
         public void onSensorChanged(SensorEvent event) {
             mProxyIsNear = event.values[0] < mPocketSensor.getMaximumRange();
             if (DEBUG_SENSOR) Log.i(TAG, "mProxyIsNear = " + mProxyIsNear + " mProxyWasNear = " + mProxyWasNear);
+            if (mUseProxiCheck) {
+                if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
+                    Utils.writeValue(GOODIX_CONTROL_PATH, mProxyIsNear ? "1" : "0");
+                }
+            }
             if (mUseWaveCheck || mUsePocketCheck) {
                 if (mProxyWasNear && !mProxyIsNear) {
                     long delta = SystemClock.elapsedRealtime() - mProxySensorTimestamp;
@@ -363,9 +370,16 @@ public class KeyHandler implements DeviceKeyHandler {
         if (DEBUG) Log.i(TAG, "Display on");
         if (enableProxiSensor()) {
             mSensorManager.unregisterListener(mProximitySensor, mPocketSensor);
+            enableGoodix();
         }
     }
 
+    private void enableGoodix() {
+        if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
+            Utils.writeValue(GOODIX_CONTROL_PATH, "0");
+        }
+    }
+    
     private void onDisplayOff() {
         if (DEBUG) Log.i(TAG, "Display off");
         if (enableProxiSensor()) {
