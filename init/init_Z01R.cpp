@@ -32,6 +32,7 @@
 #include <android-base/properties.h>
 #include "property_service.h"
 #include "vendor_init.h"
+#include <sys/sysinfo.h>
 
 using android::init::property_set;
 
@@ -53,10 +54,38 @@ void property_override_dual(char const system_prop[], char const vendor_prop[],
     property_override(vendor_prop, value);
 }
 
+void load_dalvikvm_properties()
+{
+	struct sysinfo sys;
+
+	sysinfo(&sys);
+	if (sys.totalram < 7000ull * 1024 * 1024)
+	{
+		// 6GB RAM
+		property_override_dual("dalvik.vm.heapstartsize", "dalvik.vm.heapstartsize", "16m");
+		property_override_dual("dalvik.vm.heaptargetutilization", "dalvik.vm.heaptargetutilization", "0.5");
+		property_override_dual("dalvik.vm.heapmaxfree", "dalvik.vm.heapmaxfree", "32m");
+	}
+	else
+	{
+		// 8GB RAM
+		property_override_dual("dalvik.vm.heapstartsize", "dalvik.vm.heapstartsize", "24m");
+		property_override_dual("dalvik.vm.heaptargetutilization", "dalvik.vm.heaptargetutilization", "0.46");
+		property_override_dual("dalvik.vm.heapmaxfree", "dalvik.vm.heapmaxfree", "48m");
+	}
+	
+	property_override_dual("dalvik.vm.heapgrowthlimit", "dalvik.vm.heapgrowthlimit", "256m");
+	property_override_dual("dalvik.vm.heapsize", "dalvik.vm.heapsize", "512m");
+	property_override_dual("dalvik.vm.heapminfree", "dalvik.vm.heapminfree", "8m");
+}
+
 void vendor_load_properties()
 {
+	// Load dalvik config
+	load_dalvikvm_properties();
+    
     // fingerprint
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ3A.200705.002/6506677:user/release-keys");
 
     // for Asus Camera
     property_override("ro.product.device", "ASUS_Z01R_1");
