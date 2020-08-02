@@ -139,4 +139,9 @@
 
     <string name="fps_info_title">FPS Overlay</string>
     <string name="fps_info_summary">Show overlay with with current frames per second</string>
+
+    <!-- Mobile Manager -->
+    <string name="asus_category_title">Asus Battery Care</string>
+    <string name="asus_powermaster_title">Power Master</string>
+    <string name="asus_mobile_manager">Mobile Manager</string>
 </resources>
